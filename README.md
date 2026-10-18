@@ -86,25 +86,30 @@ Example request:
 ```json
 {
   "customer": {
-    "name": "Nguyen Van A",
-    "email": "customer@example.com",
-    "phone": "0900000000"
+    "name": "John Doe",
+    "email": "john.doe@example.com",
+    "phone": "+1-555-019-2834"
   },
   "shippingAddress": {
-    "address": "123 Main Street",
-    "city": "New York",
-    "country": "United States"
+    "line1": "742 Evergreen Terrace",
+    "city": "Springfield",
+    "state": "OR",
+    "postalCode": "97477",
+    "country": "US"
   },
   "shippingMethod": "standard",
   "paymentMethod": "mock_card",
+  "currency": "USD",
   "couponCode": "WELCOME10",
   "items": [
     {
-      "productId": "product-001",
-      "quantity": 2
+      "productId": "prod_us_001",
+      "quantity": 2,
+      "unitPrice": 49.99
     }
   ]
 }
+
 ```
 
 ### Checkout Service
