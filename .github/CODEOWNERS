@@ -1,0 +1,6 @@
+# Global default owner for the entire repository
+* @MohdAzfara
+
+# Critical payment core and security paths require strict review
+/src/ @MohdAzfara
+/tsup.config.ts @MohdAzfara
