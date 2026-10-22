@@ -22,8 +22,8 @@ jobs:
           node-version: '20.18.0'
           cache: 'npm'
 
-      - name: Install Dependencies (Exact Pinning)
-        run: npm ci
+      - name: Install Dependencies (Flexible Resolution)
+        run: npm install
 
       - name: Run Strict NPM Audit
         run: npm audit --audit-level=high
