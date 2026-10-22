@@ -1,0 +1,5 @@
+# Security Vulnerability Disclosure Contact (RFC 9116)
+Contact: mailto:security@checkout-flow-sdk.internal
+Preferred-Languages: en
+Policy: https://github.com/MohdAzfara/checkout-flow-sdk/blob/main/SECURITY.md
+Acknowledgment: https://github.com/MohdAzfara/checkout-flow-sdk/security/advisories
