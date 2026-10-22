@@ -1,0 +1,29 @@
+name: "Enterprise Security & SAST Audit"
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  schedule:
+    - cron: '0 0 * * 1'
+
+jobs:
+  sast-audit:
+    name: Node.js Security & Vulnerability Scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 20 LTS
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.18.0'
+          cache: 'npm'
+
+      - name: Install Dependencies (Exact Pinning)
+        run: npm ci
+
+      - name: Run Strict NPM Audit
+        run: npm audit --audit-level=high
