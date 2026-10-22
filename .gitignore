@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build & Bundler Outputs (tsup / tsc)
+dist/
+build/
+*.tsbuildinfo
+
+# Testing & Coverage
+coverage/
+.nyc_output/
+
+# Environment & Cryptographic Secrets (CRITICAL)
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# IDE & OS Artifacts
+.DS_Store
+.vscode/
+.idea/
+*.log
+npm-debug.log*
