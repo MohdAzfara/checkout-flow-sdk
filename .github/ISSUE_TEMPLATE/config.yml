@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 🔒 RFC 9116 Security Vulnerability Disclosure
+    url: https://github.com/MohdAzfara/checkout-flow-sdk/blob/main/SECURITY.md
+    about: Please DO NOT report PCI-DSS or cryptographic vulnerabilities in public issues. Use our private disclosure policy.
+  - name: 📐 Architecture Decision Records (ADRs)
+    url: https://github.com/MohdAzfara/checkout-flow-sdk/tree/main/docs/adr
+    about: Review foundational architectural decisions for FSM circuit breakers and cryptographic attestation.
