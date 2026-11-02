@@ -1,0 +1,61 @@
+openapi: 3.1.0
+info:
+  title: Checkout Flow SDK & Orchestration API
+  version: 1.0.0
+  description: Zero-trust client-side tokenization, EMV 3DS2 challenge attestation, and multi-PSP failover capture contract.
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+
+paths:
+  /v1/checkout/captures:
+    post:
+      summary: Execute an idempotent tokenized checkout capture with multi-PSP failover
+      operationId: createCheckoutCapture
+      parameters:
+        - name: Idempotency-Key
+          in: header
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - name: traceparent
+          in: header
+          required: false
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - paymentToken
+                - amountMinor
+                - currency
+                - merchantAccountId
+              properties:
+                paymentToken:
+                  type: string
+                  example: "tok_pci_vault_9928174"
+                amountMinor:
+                  type: integer
+                  minimum: 50
+                  example: 150000
+                currency:
+                  type: string
+                  enum: ["USD", "EUR", "GBP", "SGD"]
+                merchantAccountId:
+                  type: string
+                  example: "acct_vendor_99481"
+                threeDSecureCryptogram:
+                  type: string
+                  example: "AAIBBYNoZBZll3FWQ1ggAAAAAAA="
+      responses:
+        "201":
+          description: Payment captured, double-entry journal emitted, and vendor split reserved.
+        "402":
+          description: Terminal card issuer decline (non-retryable).
+        "409":
+          description: Duplicate Idempotency-Key conflict with mutated checkout parameters.
